@@ -17,6 +17,7 @@ SOURCE="/Users/Guest/"
 TARGET="/System/Library/User Template/English.lproj/"
 BACKUP="/System/Library/UserTemplateBackup.$(date +%y%m%d).tgz"
 BACKDIR="/System/Library/User Template"
+SASDIR="/System/Library/User Template/English.lproj/Library/Saved Application State/"
 
 # Just in case, let's make a backup of the User Template before we change anything. (Restore instructions are at the end of this article.)
 
@@ -30,6 +31,10 @@ echo ""
 
 echo cp \"$SOURCE.DS_Store\" \"$TARGET.DS_Store\"
 cp "$SOURCE.DS_Store" "$TARGET.DS_Store"
+echo ""
+
+echo cp \"$SOURCEscripts" \"$TARGETscripts"
+cp "$SOURCEscripts" "$TARGETscripts"
 echo ""
 
 
@@ -53,6 +58,11 @@ echo rm -R \"$TARGET$curdir\"
 echo cp -R \"$SOURCE$curdir\" \"$TARGET$curdir\"
 rm -R "$TARGET$curdir"
 cp -R "$SOURCE$curdir" "$TARGET$curdir"
+echo ""
+
+echo Removing saved application state
+echo rm -R \"$SASDIR\"
+rm -R "$SASDIR"
 echo ""
 
 # Unless you added files to the other Guest home folders, for example: Documents, Music, Public, etc, you're done! Otherwise, adapt the two terminal lines above to delete the originals and copy the replacements.
